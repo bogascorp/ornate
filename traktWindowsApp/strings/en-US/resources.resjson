@@ -1,0 +1,21 @@
+﻿{
+	"back":"Back",
+	"home":"Home",
+	"calendar":"Calendar",
+	"my_profile":"My Profile",
+	"my_watchlist":"Watchlist",
+	"movies":"Movies",
+	"tv_shows":"TV SHows",
+	"on_deck":"On Deck",
+	"settings":"Settings",
+	"search":"Search",
+
+	"hello":"Hello ",
+
+	"episodedetails_title":"What people have to say",
+	"next_to_watch":"Next to watch",
+	"upcoming":"Upcoming",
+	"trending_movies":"Trending Movies",
+	"trending_shows":"Trending Shows",
+	"all_episodes_watched":"All episodes watched."
+}

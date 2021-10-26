@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>search</title>
+    <script src="search.js"></script>
+    <link href="/css/search.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="fragment search">
+        <section aria-label="Main content" role="main">
+            <div class="search-box"><input id="search-query" /><select id="search-type"><!--<option value="movie,show,episode,person">Any</option>--><option value="movie">Movie</option><option value="Show" selected>Show</option><!--<option value="episode">Episode</option>--><option value="person">Person</option><!--<option value="list">List</option>--></select><button id="search-button"></button></div>
+            <div id="search-results-container" class="maincontainer"><div id="search-results-movies"></div><div id="search-results-shows"></div><div id="search-results-episodes"></div><div id="search-results-people"></div></div>
+</section>
+    </div>
+
+</body>
+</html>

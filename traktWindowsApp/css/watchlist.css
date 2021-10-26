@@ -1,0 +1,54 @@
+﻿.watchlist .maincontainer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-size: cover;
+  background-position: center center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-top: 2rem;
+  padding-left: 6rem;
+  padding-right: 4rem;
+  line-height: 0px;
+  font-size: 0rem;
+  -ms-scroll-translation: vertical-to-horizontal;
+  white-space: nowrap;
+  opacity: 0;
+  animation-name: intro2;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-play-state: running;
+}
+.watchlist .maincontainer .column {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  white-space: normal;
+  height: calc(100% - 4rem);
+  padding-left: 2rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.watchlist .maincontainer .column.col1 {
+  padding-right: 4rem;
+}
+.watchlist .maincontainer .column:first-child {
+  padding-left: 0px;
+}
+.watchlist .maincontainer .column h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'proximaweb';
+  letter-spacing: -1px;
+  line-height: 100%;
+  margin-bottom: 1rem;
+}
+
+.watchlist #watchlistContent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: calc(100% - 2rem);
+}

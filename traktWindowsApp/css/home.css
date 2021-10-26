@@ -1,0 +1,106 @@
+﻿.home .maincontainer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-size: cover;
+  background-position: center center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-top: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  line-height: 0px;
+  font-size: 0rem;
+  -ms-scroll-translation: vertical-to-horizontal;
+  white-space: nowrap;
+  opacity: 0;
+  animation-name: intro2;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-play-state: running;
+}
+.home .maincontainer .column {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  white-space: normal;
+  height: calc(100% - 3rem);
+  padding-right: 4rem;
+  padding-left: 6rem;
+}
+.home .maincontainer .column.col0 {
+  display: none;
+  width: 0;
+}
+.home .maincontainer .column.col1 {
+  display: none;
+  width: 0;
+}
+.home .maincontainer .column.col2 {
+  width: calc(5 * ((((((100vh - 18rem) /2)) /1.5))) + 10rem);
+}
+.home .maincontainer .column.col3 {
+  width: calc(5 * ((((((100vh - 18rem) /2)) /1.5))) + 10rem);
+}
+.home .maincontainer .column:first-child {
+  padding-left: 2rem;
+}
+.home .maincontainer .column h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'proximaweb';
+  letter-spacing: -1px;
+  line-height: 100%;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.home #upcoming-episodes, .home #unwatched-episodes {
+  height: calc(100% - 3rem);
+}
+
+@media (max-height: 768px) {
+  .home .maincontainer .column.col2 {
+    width: calc(20 * ((((((100vh - 15rem))) /1.5))) + 10rem);
+  }
+
+  .home .maincontainer .column.col3 {
+    width: calc(20 * ((((((100vh - 15rem))) /1.5))) + 10rem);
+  }
+}
+@media (max-width: 500px) {
+  .home .maincontainer {
+    overflow-x: auto;
+    overflow-y: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .home .maincontainer .column {
+    display: block;
+    height: auto;
+    padding-left: 2rem;
+  }
+
+  .home .maincontainer .column.col1, .home .maincontainer .column.col0 {
+    display: block !important;
+    padding-right: 0;
+    padding-left: 0;
+    width: auto !important;
+  }
+
+  .home .maincontainer .column.col2 {
+    padding-right: 0;
+    padding-left: 0;
+    width: auto;
+  }
+
+  .home .maincontainer .column.col3 {
+    padding-right: 0;
+    padding-left: 0;
+    width: auto;
+  }
+}

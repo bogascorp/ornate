@@ -1,0 +1,42 @@
+﻿
+.movies .maincontainer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-size: cover;
+    background-position: center center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-top: 2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    line-height: 0px;
+    font-size: 0rem;
+    -ms-scroll-translation: vertical-to-horizontal;
+    white-space: nowrap;
+    opacity: 0;
+    animation-name: intro2;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    animation-play-state: running;
+
+    .column {
+        width: calc(5 * ((((((100vh - 18rem) /2)) /1.5))) + 9rem);
+        display: inline-block;
+        padding-left: 2rem;
+        padding-right: 4rem;
+        height: calc(100% - 3rem);
+        vertical-align:top;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            line-height: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+}

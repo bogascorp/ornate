@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Ornate Preview</title>
+
+    <!-- WinJS references -->
+    <link href="WinJS/css/ui-dark.css" rel="stylesheet" />
+    <script src="WinJS/js/base.js"></script>
+    <script src="WinJS/js/ui.js"></script>
+
+    <!-- traktWindowsApp references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.ellipsis.js"></script>
+    <script src="/js/cacher.js"></script>
+    <script src="/js/traktapi.js"></script>
+    <script src="/js/tmdbapi.js"></script>
+    <script src="/js/tvdbapi.js"></script>
+    <script src="/js/default.js"></script>
+    <script src="/js/navigator.js"></script>
+    <script src="/js/ornate.js"></script>
+</head>
+<body>
+    <div class="fanart">
+        <div class="fanart-image"></div>
+        <img id="fanart" src="" />
+        <div class="fanart-overlay"></div>
+    </div>
+    <div id="show-movie-name"></div>
+    <div class="ismobile menubar-bg"></div>
+    <div id="menubar"><div class="menubar-toggler"><i></i></div><button class="menubar-goback"><i></i><span data-win-res="{textContent: 'back'}"></span></button><a href="/pages/home.html" class="menubar-home"><i></i><span data-win-res="{textContent: 'home'}"></span></a><a href="/pages/search.html" class="menubar-search"><i></i><span data-win-res="{textContent: 'search'}"></span></a><a href="/pages/calendar.html" class="menubar-calendar"><i></i><span data-win-res="{textContent: 'calendar'}"></span></a><a href="/pages/tvshows.html" class="menubar-tvshows"><i></i><span data-win-res="{textContent: 'tv_shows'}"></span></a><a href="/pages/movies.html" class="menubar-movies"><i></i><span data-win-res="{textContent: 'movies'}"></span></a><a href="/pages/deck.html" class="menubar-deck"><i></i><span data-win-res="{textContent: 'on_deck'}"></span></a><a href="/pages/watchlist.html" class="menubar-watchlist"><i></i><span data-win-res="{textContent: 'my_watchlist'}"></span></a><a href="/pages/profile.html" class="menubar-profile"><i><img unselectable="on" id="upg-profile" src="/assets/noavatar.png" /></i><span id="upg-username">Sign in</span></a><a href="/pages/settings.html" class="menubar-settings"><i></i><span data-win-res="{textContent: 'settings'}"></span></a></div>
+    <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/pages/home.html'}"></div>
+    <div class="appassets-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><g fill="#fff"><path d="M285.4499 150.2197l-178.1981 175.586c-9.6691 9.5153-9.6691 25.0061 0 34.5276l32.995 32.5195c4.6826 4.6081 10.9033 7.1472 17.5209 7.1472 6.6176 0 12.8383-2.5391 17.5209-7.1472l115.7556-113.8062c4.85-4.7851 8.9558-14.5385 8.9558-21.3073V142.2607c0-5.1147-2.3444-11.9384-5.5943-17.0349.9551 8.9234-2.0342 18.1702-8.9558 24.9939z"></path><path d="M280.8852 111.2L175.2824 7.1472C170.606 2.5391 164.3853 0 157.7677 0c-6.6176 0-12.8445 2.5391-17.5209 7.1472l-32.995 32.5195c-9.6691 9.5215-9.6691 25.0062 0 34.5276l123.1113 121.3135 50.5221-49.7803c9.6628-9.5153 9.6628-25.0061 0-34.5275z"></path></g></svg>
+    </div>
+    <div id="globalprogress" class="visible">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><g fill="#fff"><path d="M285.4499 150.2197l-178.1981 175.586c-9.6691 9.5153-9.6691 25.0061 0 34.5276l32.995 32.5195c4.6826 4.6081 10.9033 7.1472 17.5209 7.1472 6.6176 0 12.8383-2.5391 17.5209-7.1472l115.7556-113.8062c4.85-4.7851 8.9558-14.5385 8.9558-21.3073V142.2607c0-5.1147-2.3444-11.9384-5.5943-17.0349.9551 8.9234-2.0342 18.1702-8.9558 24.9939z"></path><path d="M280.8852 111.2L175.2824 7.1472C170.606 2.5391 164.3853 0 157.7677 0c-6.6176 0-12.8445 2.5391-17.5209 7.1472l-32.995 32.5195c-9.6691 9.5215-9.6691 25.0062 0 34.5276l123.1113 121.3135 50.5221-49.7803c9.6628-9.5153 9.6628-25.0061 0-34.5275z"></path></g></svg>
+    </div>
+    <div id="youtubeplayer"><div class="yp-frame"></div><div class="yp-overlay"><button class="yp-closebtn"></button></div></div>
+
+    <div id="episode-details">
+        <div class="ed-sidebar">
+            <div class="ed-cover"><div class="ed-cover-image"><img /></div><div class="ed-cover-details"><div class="ed-cover-details-rating"><span></span></div><div class="ed-cover-details-showname"></div><div class="ed-cover-details-episodename"></div><div class="ed-cover-details-episodeseason"></div><div class="ed-cover-details-episodedetails"></div></div></div><div class="ed-comments">
+
+                <h1>
+                    <span data-win-res="{textContent: 'episodedetails_title'}"></span>
+                    <div class="commentsOptions dark">
+                        <div class="co-toggler"></div>
+                        <div class="co-items">
+                            <div class="co-spoilerswitch" data-container="episode-comments" data-win-control="WinJS.UI.ToggleSwitch" data-win-options="{title: 'Spoilers', labelOn:'Visible', labelOff:'Hidden'}"></div>
+
+                            <div class="co-explain">You can use the tag <strong>[spoiler]</strong>text here<strong>[/spoiler]</strong> to mark part of your text as a spoiler.</div>
+                        </div>
+                    </div>
+                </h1>
+                <div id="episode-comments" class="comments-stream dark"></div>
+                <div class="comments-form dark"><textarea placeholder="What did you think of this episode?"></textarea><button data-mediatype="episode"></button></div>
+            </div>
+        </div><div class="ed-options">
+            <button id="ed-addtowatched"><i></i><div class="glow"></div></button>
+            <button id="ed-gotoshow"><i></i>View show details</button>
+        </div><div class="ed-closebtn"></div>
+    </div>
+
+    
+    <div id="infoOverlay"></div>
+
+
+
+
+
+
+    <div id="watchedDateDialog">
+            <div class="wdd-title">When did you watch this?</div>
+            <div class="wdd-choices">
+                <div><label><input type="radio" name="viewdate" id="wdd-rightnow" checked />Right now</label></div>
+                <div><label><input type="radio" name="viewdate" id="wdd-releasedate" />On release date</label></div>
+                <!--<button class="wdd-rightnow">Right now</button>
+                <button class="wdd-releasedate">On release date</button>-->
+                <!--<button class="wdd-otherdate">Other date</button>-->
+                <!--<div data-win-control="WinJS.UI.DatePicker"></div>
+    <div data-win-control="WinJS.UI.TimePicker"></div>-->
+
+            </div>
+            <div class="wdd-title">How do you rate it?</div>
+            <div id="watchedDateDialog-ratingcontrol" class="ia-stars" data-win-control="WinJS.UI.Rating" data-win-options="{ tooltipStrings : ['It was terrible!','Expected better','It was OK','Really good','Loved It!']}"></div>
+            <div class="ia-stars-label"></div>
+            <button class="wdd-button-close">Cancel</button><button class="wdd-button-save">Save</button>
+    </div>
+    <div id="infoSuccess"><span class="is-1"></span><span class="is-2"></span></div>
+    <div id="infoAlert"><div class="ia-title"></div><div class="ia-text"></div><button class="ia-button">OK</button></div>
+    <div id="infoAsk"><div class="ia-title"></div><div class="ia-text"></div><button class="ia-yes">Yes</button><button class="ia-no">No</button></div>
+    <div id="infoComments">
+        <div class="ia-title">Before posting</div>
+        <div class="ia-body">Does your comments have spoilers?</div>
+        <button class="ia-button-spoilers">Yes it has</button>
+        <button class="ia-button-nospoilers">No spoilers</button>
+        <button class="ia-button-cancel">Cancel</button>
+        <input type="hidden" value="0" id="ia-check-english" />
+    </div>
+    <div id="infoRating">
+        <div class="ia-title">How do you rate it?</div>
+        <div id="infoRating-control" class="ia-stars" data-win-control="WinJS.UI.Rating" data-win-options="{ tooltipStrings : ['It was terrible!','Expected better','It was OK','Really good','Loved It!']}"></div>
+        <div class="ia-stars-label"></div>
+        <button class="ia-ratenow">Rate Now</button><button class="ia-cancel">Cancel</button>
+    </div>
+    <div id="infoRatingHeart">
+    <img class="like" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMiAzMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0xNC43MDgsMTUuODQ3QzE0LjI1MiwxNC44NjQsMTQsMTMuNzQyLDE0LDEyLjVzMC4yNTItMi40ODksMC43MDgtMy42NTljMC40NTUtMS4xNzEsMS4xMTQtMi4yNjYsMS45MjktMy4yMDUgICAgYzAuODE0LTAuOTM4LDEuNzg0LTEuNzIzLDIuODYtMi4yNzFDMjAuNTc0LDIuODE0LDIxLjc1OCwyLjUsMjMsMi41czIuNDI2LDAuMjUyLDMuNTAzLDAuNzA3YzEuMDc3LDAuNDU2LDIuMDQ2LDEuMTE1LDIuODYsMS45MjkgICAgYzAuODEzLDAuODE0LDEuNDc0LDEuNzg0LDEuOTI5LDIuODYxQzMxLjc0OSw5LjA3MywzMiwxMC4yNTgsMzIsMTEuNXMtMC4yNTIsMi40MjctMC43MDgsMy41MDMgICAgYy0wLjQ1NSwxLjA3Ny0xLjExNCwyLjA0Ny0xLjkyOSwyLjg2MUMyOC41NSwxOC42NzgsMTcuMDc3LDI5LjA0NCwxNiwyOS41bDAsMGwwLDBDMTQuOTIzLDI5LjA0NCwzLjQ1LDE4LjY3OCwyLjYzNiwxNy44NjQgICAgYy0wLjgxNC0wLjgxNC0xLjQ3My0xLjc4NC0xLjkyOS0yLjg2MUMwLjI1MiwxMy45MjcsMCwxMi43NDIsMCwxMS41czAuMjUyLTIuNDI3LDAuNzA3LTMuNTAzQzEuMTYzLDYuOTIsMS44MjEsNS45NSwyLjYzNiw1LjEzNiAgICBDMy40NSw0LjMyMiw0LjQyLDMuNjYzLDUuNDk3LDMuMjA3QzYuNTczLDIuNzUyLDcuNzU3LDIuNSw5LDIuNXMyLjQyNywwLjMxNCwzLjUwMywwLjg2M2MxLjA3NywwLjU1LDIuMDQ2LDEuMzM0LDIuODYxLDIuMjcyICAgIGMwLjgxNCwwLjkzOSwxLjQ3MywyLjAzNCwxLjkyOSwzLjIwNUMxNy43NDgsMTAuMDExLDE4LDExLjI1OCwxOCwxMi41cy0wLjI1MiwyLjM2NC0wLjcwNywzLjM0NyAgICBjLTAuNDU2LDAuOTgzLTEuMTEzLDEuODI4LTEuOTI5LDIuNTE4IiBmaWxsPSIjRDgwMDI3Ii8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" /><img class="dislike" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDQzNy43NzUgNDM3Ljc3NCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDM3Ljc3NSA0MzcuNzc0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTQzNy43NzUsMTUwLjgwMWMwLDExMC40NzgtMjE4Ljg5MywyNTcuMjEyLTIxOC44OTMsMjU3LjIxMlMwLDI2Ni41NjksMCwxNTAuODAxQzAsNjcuNTg0LDU0LjIwMiwyOS43NjEsMTIxLjA0MSwyOS43NjEgICBjMzAuOTQ2LDAsNTkuMDkzLDExLjcsODAuNDYzLDMwLjgxOGwtNTUuNzQ0LDgwLjkyNWMtMS4zOTIsMi4wMjEtMS45MDYsNC41MjctMS40MjEsNi45MzZjMC40ODQsMi40MDMsMS45MjQsNC41MjIsMy45OTIsNS44NDkgICBsODIuOTU4LDUzLjMwOWwtMzguMTc4LDQ2LjA4Yy0xLjkyMSwyLjMxNy0yLjU2OCw1LjQzMy0xLjcyNiw4LjMyMmwyMS4zNTksNzMuNjcyYzEuMTQ0LDMuOTU1LDQuNzY0LDYuNTUsOC43MDksNi41NSAgIGMwLjcwMywwLDEuNDI1LTAuMDg5LDIuMTM3LTAuMjU1YzQuNzItMS4xMzUsNy43MDUtNS43ODYsNi43ODktMTAuNTUxbC0xMi45NzUtNjcuMDMzbDU0LjQ1Ni01NC43MjUgICBjMS44MzItMS44NDEsMi43ODQtNC4zODMsMi42MjQtNi45NjZjLTAuMTU5LTIuNTk4LTEuNDI0LTQuOTk1LTMuNDc2LTYuNTkzbC03MS43MzItNTUuOTI1bDc3Ljk2My05My42MjkgICBjMS41ODQtMS45MDYsMi4zMTctNC4zODMsMi4wMzMtNi44NDVjLTAuMTQyLTEuMjY1LTAuNTYyLTIuNDcxLTEuMTk0LTMuNTUyYzEyLjEyOS00LjExMSwyNS4xMDQtNi4zODcsMzguNjMzLTYuMzg3ICAgQzM4My41NzQsMjkuNzYxLDQzNy43NzUsODMuOTYyLDQzNy43NzUsMTUwLjgwMXoiIGZpbGw9IiNGRkZGRkYiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+    </div>
+
+    <div id="announcementFrame">
+        <div class="af-container">
+            <div class="af-closebtn"></div>
+            <div class="af-title">New on Ornate Preview</div>
+            <div class="bannerBlock" data-timer="4000" data-position="0">
+                <div class="bb-overlay"><div class="bb-goback"></div><div class="bb-goforward"></div><div class="bb-controls"><div class="bb-position"></div></div></div><div class="bb-banners">
+                    <div class="bb-banners-item in"><div style="background-image:url(ms-appx:///assets/new4.png); "><div class="bb-text"><div class="bb-title">Comments</div><div class="bb-description">Now you can comment on your favorite tv shows and movies</div></div></div></div>
+
+                    <div class="bb-banners-item in"><div style="background-image:url(ms-appx:///assets/new3.png); "><div class="bb-text"><div class="bb-title">On Deck</div><div class="bb-description">TV Shows that you're part-way watching</div></div></div></div>
+
+                    <div class="bb-banners-item in"><div style="background-image:url(ms-appx:///assets/new1.png); "><div class="bb-text"><div class="bb-title">Calendar View</div><div class="bb-description">Check what's next for the upcoming days</div></div></div></div>
+
+                    <div class="bb-banners-item in"><div style="background-image:url(ms-appx:///assets/new2.png); "><div class="bb-text"><div class="bb-title">Live Tile</div><div class="bb-description">Information at a glimpse</div></div></div></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="coverFlow" class="out">
+        <div class="cf-fanart"><img id="cf-fanart-img" /></div>
+        <div class="cf-content">
+            <div class="cf-poster"><img unselectable="on" id="cf-poster-img" /><div class="cf-rating"></div><div class="cf-certification"></div></div>
+            <div class="cf-likes"></div>
+            <div class="cf-title"></div>
+            <div class="cf-details"></div>
+            <button class="cf-goto"><i></i>See show details</button>
+            <div class="cf-nav">
+                <button class="cf-previous"></button>
+                <button class="cf-next"></button>
+            </div>
+        </div>
+
+    </div>
+    <div class="cf-viewToggler"><button class="cf-vt-full active"></button><button class="cf-vt-tiles"></button></div>
+
+    <!--<div id="notificationBar">
+        <div class="nb-header"><span>Notice</span>Due to changes in Trakt.tv, starting october 31, images will not be visible. Click to read more.</div>
+        <div class="nb-content"><h2>Important Changes</h2>Due to changes in Trakt.tv, starting october 31, images will not be visible.
+            <br /><br />
+            This includes, movie posters, show posters, season posters, episode screenshots, actors and wallpapers.<br />
+            Images will automatically be replaced by placeholders while I work on a new way of supplying images.
+        </div>
+    </div>-->
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+﻿.season .maincontainer {
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    background-size:cover;
+    background-position:center center;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding-top:2rem;
+    padding-left:6rem;
+    padding-right:4rem;
+    line-height:0px;
+    font-size:0rem;
+    -ms-scroll-translation: vertical-to-horizontal;
+    white-space:nowrap;
+    opacity:0;
+    animation-name:intro2;
+    animation-fill-mode:forwards;
+    animation-duration:1s;
+    animation-timing-function:cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    animation-play-state:running;
+}
+.season .maincontainer .column {
+    display:inline-block;
+    vertical-align:top;
+    position:relative;
+    white-space:normal;
+    height:calc(100% - 4rem);
+    padding-left:2rem;
+    transition:all 0.4s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+.season .maincontainer .column.col1 {
+    padding-right:4rem;
+}
+.season .maincontainer .column:first-child {
+    padding-left:0px;
+} 
+    .season .maincontainer .column h1 { 
+        font-size: 2rem;
+        font-weight: 600;
+        font-family:'proximaweb';
+        letter-spacing: -1px;
+        line-height: 100%;
+        margin-bottom: 1rem;
+    }
+    .season .fanart {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    opacity: 0;
+    transition: all 2s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    transition-delay: 1s;
+    background-position: center center;
+    background-size: cover;
+}
+
+    .season .fanart #show-fanart {
+        width: 1px;
+        height: 1px;
+        position: absolute;
+        top: -100px;
+        left: -100px;
+    }
+
+    .season .fanart .fanart-overlay {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-image: linear-gradient(180deg,rgba(17,17,17,0) 0%,rgb(17,17,17) 100%);
+    }
+
+        .season .fanart .fanart-overlay:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(17,17,17,0.70);
+        }
+
+.season #page-name {
+    position: fixed;
+    font-size: 2rem;
+    font-weight: 900;
+    left: 12rem;
+    height: 5rem;
+    font-family: 'proximaweb';
+    line-height: 5rem;
+    text-transform: uppercase;
+    top: 3rem;
+    color: #fff;
+    z-index: 5;
+}
+
+    .season #page-name span {
+        font-weight: 300;
+        font-family: 'proximaweb';
+        font-size: 1rem;
+        margin-left: 0.5rem;
+        opacity: 0.5;
+    }
+.season #season-episodes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: calc(100% - 2rem);
+}
+    .season #season-episodes .season-episodes-item {
+        background-color: #000;
+        color: #fff;
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 2rem;
+        margin-right: 2rem;
+        height: calc(((100vh - 21rem) /3));
+        width: calc(((((100vh - 21rem) /3)) / 0.5625));
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 1s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+        animation-name: fadeIn;
+        animation-fill-mode: forwards;
+        animation-duration: 0.8s;
+        opacity: 0;
+        background-image: url(/assets/noscreen.png);
+        background-position: center center;
+        background-size: cover;
+    }
+    @keyframes fadeIn {
+        0% {
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+        }
+    }
+    .season #season-episodes .season-episodes-item:focus {
+        outline:0.5rem solid rgba(255,255,255,1);
+        transform:scale(1.05) translateY(0%);
+        z-index:999;
+    }
+    .season #season-episodes .season-episodes-item:hover {
+        transition-duration:0.2s;
+        box-shadow: 0 0 2rem rgba(255,255,255,0.5);
+    }
+        .season #season-episodes .season-episodes-item img {
+            height: 100%;
+            width:100%;
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+        }
+        .season #season-episodes .season-episodes-item.isvisible img {
+            opacity: 1;
+        }
+
+        .season #season-episodes .season-episodes-item:nth-child(3n) {
+            margin-bottom: 0px;
+        }
+        .season #season-episodes .season-episodes-item .uei-cover {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: rgba(0,0,0,0.5);
+        }
+            .season #season-episodes .season-episodes-item .uei-cover .uei-description {
+                padding-left: 2rem;
+                padding-right: 2rem;
+                padding-bottom: 2rem;
+                font-size: 1.1rem;
+                line-height: 1.2rem;
+                position: absolute;
+                bottom: 0rem;
+                font-family: "proximaweb";
+                max-height: 7.8rem;
+                overflow: hidden;
+            }
+        .season #season-episodes .season-episodes-item .uei-cover .uei-episode {
+            opacity:0.5;
+            line-height:2rem;
+            font-weight:bold;
+            font-size:1.1rem;
+            text-transform:uppercase;
+            font-family: 'proximaweb';
+        }
+        .season #season-episodes .season-episodes-item .uei-cover .uei-episodename {
+            padding-left:2rem;
+            padding-right:2rem;
+            padding-top:2rem;
+            line-height:1rem;
+            position:absolute;
+            top:0rem;
+            font-size:1.2rem;
+        }

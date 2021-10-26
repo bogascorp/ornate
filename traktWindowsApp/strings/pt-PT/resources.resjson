@@ -1,0 +1,21 @@
+﻿{
+	"back":"Voltar",
+	"home":"Home",
+	"calendar":"Calendário",
+	"my_profile":"O meu perfil",
+	"my_watchlist":"Para ver",
+	"movies":"Filmes",
+	"tv_shows":"Séries de TV",
+	"on_deck":"Em fila de espera",
+	"settings":"Definições",
+	"search":"Pesquisar",
+
+	"hello":"Olá ",
+
+	"episodedetails_title":"O que as pessoas têm a dizer",
+	"next_to_watch":"Próximo para ver",
+	"upcoming":"Brevemente",
+	"trending_movies":"Filmes em destaque",
+	"trending_shows":"Séries em destaque",
+	"all_episodes_watched":"All episodes watched."
+}

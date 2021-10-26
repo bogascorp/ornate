@@ -1,0 +1,42 @@
+﻿[
+  {
+    "outputFile": "css/default.css",
+    "inputFile": "css/default.scss"
+  },
+  {
+    "outputFile": "css/watchlist.css",
+    "inputFile": "css/watchlist.scss"
+  },
+  {
+    "outputFile": "css/movies.css",
+    "inputFile": "css/movies.scss"
+  },
+  {
+    "outputFile": "css/home.css",
+    "inputFile": "css/home.scss"
+  },
+  {
+    "outputFile": "css/show.css",
+    "inputFile": "css/show.scss"
+  },
+  {
+    "outputFile": "css/tvshows.css",
+    "inputFile": "css/tvshows.scss"
+  },
+  {
+    "outputFile": "css/deck.css",
+    "inputFile": "css/deck.scss"
+  },
+  {
+    "outputFile": "css/settings.css",
+    "inputFile": "css/settings.scss"
+  },
+  {
+    "outputFile": "css/profile.css",
+    "inputFile": "css/profile.scss"
+  },
+  {
+    "outputFile": "css/movie.css",
+    "inputFile": "css/movie.scss"
+  }
+]

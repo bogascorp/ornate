@@ -1,0 +1,481 @@
+﻿#moviedetails {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-size: cover;
+  background-position: center center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-top: 2rem;
+  padding-left: 6rem;
+  padding-right: 4rem;
+  line-height: 0px;
+  font-size: 0rem;
+  -ms-scroll-translation: vertical-to-horizontal;
+  white-space: nowrap;
+  opacity: 0;
+  animation-name: intro2;
+  animation-fill-mode: forwards;
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-play-state: running;
+}
+@media (max-width: 500px) {
+  #moviedetails {
+    -ms-scroll-snap-type: mandatory;
+    -ms-scroll-snap-points-x: repeat(100%);
+  }
+}
+#moviedetails .column {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  height: calc(100% - 3rem);
+  white-space: normal;
+}
+#moviedetails .column h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 100%;
+  margin-bottom: 1rem;
+}
+#moviedetails .column.panel-poster {
+  width: calc(((((100vh - 12rem)) * 1000) /1500));
+  overflow: hidden;
+  background-color: #111;
+}
+#moviedetails .column.panel-poster #movie-poster {
+  height: 100%;
+  width: calc(((((100vh - 12rem)) * 1000) /1500));
+  opacity: 0;
+  transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+#moviedetails .column.panel-poster #movie-poster.visible {
+  opacity: 1;
+}
+#moviedetails .column.panel-poster #movie-rating {
+  color: #fff;
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#moviedetails .column.panel-poster #movie-rating:before {
+  content: '';
+  display: block;
+  z-index: 1;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 4rem 4rem 0;
+  border-color: transparent #ED2024 transparent transparent;
+}
+#moviedetails .column.panel-poster #movie-rating span {
+  position: absolute;
+  z-index: 2;
+  font-size: 1.2rem;
+  font-weight: 800;
+  transform: rotate(45deg);
+  line-height: 2.5rem;
+  width: 4rem;
+  text-align: center;
+  height: 4rem;
+}
+#moviedetails .column.panel-poster #movie-certification {
+  color: #fff;
+  line-height: 22px;
+  width: 56px;
+  height: 24px;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  font-size: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  border-radius: 4px;
+}
+#moviedetails .column.panel-details {
+  width: 40rem;
+  padding-left: 4rem;
+  padding-right: 2rem;
+}
+#moviedetails .column.panel-details #movie-info {
+  font-size: 12px;
+  margin-bottom: 2rem;
+  line-height: 120%;
+  opacity: 0.5;
+}
+#moviedetails .column.panel-details #movie-tag {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  line-height: 120%;
+  font-style: italic;
+  display: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#moviedetails .column.panel-details #movie-director {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 2rem;
+}
+#moviedetails .column.panel-details #movie-director:before {
+  content: 'directed by';
+  font-size: 1rem;
+  opacity: 0.5;
+  line-height: 1rem;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 800;
+}
+#moviedetails .column.panel-details #movie-description {
+  font-size: 14px;
+  text-align: justify;
+  line-height: 2rem;
+}
+#moviedetails .column.panel-details #movie-watching {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+#moviedetails .column.panel-details #movie-watching:before {
+  content: 'watching right now';
+  font-size: 1rem;
+  opacity: 0.5;
+  line-height: 1rem;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 800;
+}
+#moviedetails .column.panel-details #trkt-appbar button {
+  width: calc(100% - 6rem);
+  display: block;
+  color: #fff;
+  background: none;
+  height: 3rem;
+  line-height: 3rem;
+  position: absolute;
+  left: 4rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  border-radius: 0.25rem;
+}
+#moviedetails .column.panel-details #trkt-appbar button[disabled] {
+  opacity: 0.5 !important;
+  background: none !important;
+  cursor: default;
+}
+#moviedetails .column.panel-details #trkt-appbar button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#moviedetails .column.panel-details #trkt-appbar button:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#moviedetails .column.panel-details #trkt-appbar button i {
+  width: 3rem;
+  height: 3rem;
+  float: left;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 24px;
+  padding: 8px;
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-getamazon {
+  bottom: 19.5rem;
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-opentrailer {
+  bottom: 16rem;
+  display: none;
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-checkin {
+  color: #ED2024;
+  bottom: 10.5rem;
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-addcollection {
+  bottom: 3.5rem;
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-addlist {
+  bottom: 0;
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-addhistory {
+  bottom: 7rem;
+  overflow: hidden;
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-addhistory .glow {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  top: 0;
+  left: -84px;
+  height: 100%;
+  width: 4rem;
+  transform: skewX(45deg);
+  transition: all 1s cubic-bezier(0.86, 0, 0.07, 1);
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-addhistory:after {
+  content: 'Mark as watched';
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-addhistory.inwatchlist:after {
+  content: 'Movie already watched';
+}
+#moviedetails .column.panel-details #trkt-appbar button.movie-addhistory.inwatchlist .glow {
+  left: 480px;
+}
+#moviedetails .column.panel-cast {
+  padding-left: 2rem;
+}
+#moviedetails .column.panel-cast h1 {
+  padding-left: 4rem;
+}
+#moviedetails .column.panel-comments {
+  margin-left: 4rem;
+  margin-right: 4rem;
+  width: 38rem;
+}
+#moviedetails .column.panel-comments h1 {
+  position: absolute;
+  left: 4rem;
+  right: 4rem;
+}
+#moviedetails .column.panel-related {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+#moviedetails .column.panel-wallpaper {
+  width: 100vw;
+  height: 100vh;
+  margin-top: -9rem;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+@media (max-width: 768px) {
+  #moviedetails .column.panel-wallpaper {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+#movie-likecount {
+  font-size: 1rem;
+  line-height: 3rem;
+  text-align: right;
+  position: relative;
+}
+#movie-likecount > button {
+  background: none;
+  position: relative;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  color: #ED2024;
+  font-size: 1.4rem;
+  vertical-align: top;
+  line-height: 3.4rem;
+}
+#movie-likecount > button:before {
+  content: "rate it";
+  background-color: #fff;
+  padding: 0.5rem;
+  position: absolute;
+  left: 50%;
+  top: -2rem;
+  width: 5rem;
+  font-size: 1rem;
+  color: #000;
+  transform: translate(-50%);
+  border-radius: 2rem;
+  line-height: 1rem;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  #movie-likecount > button:before {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+}
+#movie-likecount > button:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0.5rem 0.5rem 0 0.5rem;
+  border-color: #fff transparent transparent transparent;
+  position: absolute;
+  left: 50%;
+  top: -0.1rem;
+  transform: translate(-50%);
+  pointer-events: none;
+}
+#movie-likecount #movie-likecount-rateit {
+  position: absolute;
+  right: 0px;
+  top: 3rem;
+  background-color: #fff;
+  padding: 1rem;
+  z-index: 99;
+  line-height: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0.5rem 1rem #000;
+  direction: rtl;
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+#movie-likecount #movie-likecount-rateit:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0.5rem 0.5rem 0.5rem;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  right: 1rem;
+  top: -0.25rem;
+}
+#movie-likecount #movie-likecount-rateit button {
+  display: inline-block;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  background: none;
+  color: #d6d6d6;
+  line-height: 2.4rem;
+  transition: all 0.2s ease-out;
+}
+#movie-likecount #movie-likecount-rateit button:hover {
+  color: #ED2024;
+}
+#movie-likecount #movie-likecount-rateit button:hover ~ button {
+  color: #ED2024;
+}
+
+.win-appbar {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .win-appbar {
+    display: block;
+  }
+
+    /*.movie #moviedetails .column {
+        display: block;
+        height: auto;
+        padding: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .movie #moviedetails {
+        overflow-y: auto;
+        white-space: normal;
+        padding-right: 2rem;
+        bottom: 4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .movie #moviedetails .column {
+        height: auto;
+        display: block;
+    }
+
+    .movie #moviedetails .column.col1 {
+        width: calc(100vw - 4rem);
+    }
+
+    .movie #moviedetails .column.col1 #movie-poster {
+        width: 100%;
+        height: auto;
+    }
+
+    .movie #moviedetails .column.col2 {
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 4rem;
+    }
+
+    .movie .movie-opentrailer, .movie .movie-checkin, .movie .movie-addhistory, .movie .movie-addcollection, .movie .movie-addlist, .movie .movie-getamazon {
+        position: static;
+        display: inline-block !important;
+        width: 4rem;
+        height: 4rem;
+        text-indent: -500px;
+        position: relative;
+        left: auto;
+        bottom: auto;
+    }
+
+    .movie .movie-checkin svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .movie .movie-checkin svg path {
+        fill: #fff;
+    }
+
+    #trkt-appbar {
+        height: 4rem;
+        position: -ms-device-fixed;
+        bottom: -4rem;
+        left: 0px;
+        right: 0px;
+        background-color: #ed2024;
+    }
+
+    .movie .movie-opentrailer i, .movie .movie-checkin i, .movie .movie-addhistory i, .movie .movie-addcollection i, .movie .movie-addlist i, .movie .movie-getamazon i {
+        position: absolute;
+        left: 1rem;
+        text-indent: 0px;
+        top: 1rem;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 2.5rem;
+        padding: 0;
+    }
+
+    .movie #moviedetails .column.col3 {
+        padding-left: 0px;
+        margin-top: 4rem;
+    }
+
+    .movie #moviedetails .column.col4 {
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .comments-stream.islogged {
+        height: auto;
+    }
+
+    .comments-stream {
+        width: 100%;
+        position: static;
+        padding-left: 0px;
+        padding-right: 0px;
+    }*/
+}

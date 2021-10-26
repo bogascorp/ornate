@@ -1,0 +1,11 @@
+
+traktWindowsApp/bld/
+traktWindowsApp/bin/
+x64/
+traktWindowsApp/BundleArtifacts/
+ARM/
+Debug/
+Release/
+traktWindowsApp/_pkginfo.txt
+traktWindowsApp/Package.StoreAssociation.xml
+.vs/

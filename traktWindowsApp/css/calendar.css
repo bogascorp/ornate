@@ -1,0 +1,76 @@
+﻿.calendar .calendarContainer {
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    background-size:cover;
+    background-position:center center;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding-top:2rem;
+    padding-left:4rem;
+    padding-right:4rem;
+    line-height:0px;
+    font-size:0rem;
+    -ms-scroll-translation: vertical-to-horizontal;
+    white-space:nowrap;
+    opacity:1;
+    animation-name:intro2;
+    animation-fill-mode:forwards;
+    animation-duration:1s;
+    animation-timing-function:cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    animation-play-state:running;
+}
+.calendar .calendarContainer .cc-day {
+    display:inline-block;
+    vertical-align:top;
+    position:relative;
+    white-space:normal;
+    height:calc(100% - 3rem);
+    padding-left:2rem;
+}
+.calendar .calendarContainer .cc-day .cc-day-title {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: "proximaweb";
+    letter-spacing: -1px;
+    line-height: 100%;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.calendar .calendarContainer .cc-episodes {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: calc(((((100vh - 21rem) /3)) / 0.5625));
+}
+.calendar .calendarContainer .cc-episodes .cc-episodes-empty {
+    color:#fff;
+    text-align:left;
+    display: block;
+    margin-right: 2rem;
+    width: calc(((((100vh - 21rem) /3)) / 0.5625));
+    position:relative;
+    font-size:1.1rem;
+    padding-top:2rem;
+}
+.calendar .calendarContainer #cc-loadmore {
+    display: inline-flex;
+    vertical-align: top;
+    position: relative;
+    height: calc(100% - 3rem);
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 2rem;
+    color: #fff;
+    align-items: center;
+    width: 24rem;
+    flex-direction: row;
+    justify-content: center;
+}
+.calendar .calendarContainer #cc-loadmore:hover {
+    background-color:rgba(255,255,255,0.1);
+}

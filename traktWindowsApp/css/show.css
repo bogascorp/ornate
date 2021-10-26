@@ -1,0 +1,472 @@
+﻿.show #showdetails {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-size: cover;
+  background-position: center center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-top: 2rem;
+  padding-left: 6rem;
+  padding-right: 4rem;
+  line-height: 0px;
+  font-size: 0rem;
+  -ms-scroll-translation: vertical-to-horizontal;
+  white-space: nowrap;
+  opacity: 0;
+  animation-name: intro2;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-play-state: running;
+}
+
+.show #showdetails .column {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  height: calc(100% - 3rem);
+  white-space: normal;
+}
+
+.show #showdetails .column h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 100%;
+  margin-bottom: 1rem;
+}
+
+.show #showdetails .column.col1 {
+  width: calc(((((100vh - 12rem)) * 1000) /1500));
+  overflow: hidden;
+  background-color: #111;
+}
+
+.show #showdetails .column.col2 {
+  width: 40rem;
+  padding-left: 4rem;
+  padding-right: 2rem;
+}
+
+.show #showdetails .column.col3 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  min-width: 25rem;
+}
+
+.show #showdetails .column.col4 {
+  min-width: 25rem;
+  padding-right: 0rem;
+}
+
+.show #showdetails .column.col4 h1 {
+  padding-left: 4rem;
+}
+
+.show #showdetails .column.col5 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  width: 38rem;
+}
+
+.show #showdetails .column.col5 h1 {
+  position: absolute;
+  left: 4rem;
+  right: 4rem;
+}
+
+.show #showdetails .column.col6 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.show #showdetails .column.col7 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  min-width: 34rem;
+}
+
+.show #showdetails .column.wallpaper {
+  width: 100vw;
+  height: 100vh;
+  margin-top: -9rem;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+
+.show #showdetails .column.col1 #show-poster {
+  height: 100%;
+  width: calc(((((100vh - 12rem)) * 1000) /1500));
+  opacity: 0;
+  transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.show #showdetails .column.col1 #show-poster.visible {
+  opacity: 1;
+}
+
+.show #show-info {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 120%;
+  opacity: 0.5;
+}
+
+.show #show-likecount {
+  font-size: 1rem;
+  line-height: 3rem;
+  text-align: right;
+  position: relative;
+}
+
+.show #show-likecount > button {
+  background: none;
+  position: relative;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  color: #ED2024;
+  font-size: 1.4rem;
+  vertical-align: top;
+  line-height: 3.4rem;
+}
+
+.show #show-likecount #show-likecount-rateit {
+  position: absolute;
+  right: 0px;
+  top: 3rem;
+  background-color: #fff;
+  padding: 1rem;
+  z-index: 99;
+  line-height: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0.5rem 1rem #000;
+  direction: rtl;
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.show #show-likecount #show-likecount-rateit:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0.5rem 0.5rem 0.5rem;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  right: 1rem;
+  top: -0.25rem;
+}
+
+.show #show-likecount #show-likecount-rateit button {
+  display: inline-block;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  background: none;
+  color: #d6d6d6;
+  line-height: 2.4rem;
+  transition: all 0.2s ease-out;
+}
+
+.show #show-likecount #show-likecount-rateit button:hover {
+  color: #ED2024;
+}
+
+.show #show-likecount #show-likecount-rateit button:hover,
+.show #show-likecount #show-likecount-rateit button:hover ~ button {
+  color: #ED2024;
+}
+
+.show #show-producer {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 2rem;
+}
+
+.show #show-producer:before {
+  content: 'directed by';
+  font-size: 0.8rem;
+  opacity: 0.5;
+  line-height: 1rem;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 800;
+}
+
+.show #show-description {
+  font-size: 14px;
+  text-align: justify;
+  line-height: 24px;
+}
+
+.show #show-watching {
+  margin-top: 2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.show #show-watching:before {
+  content: 'watching right now';
+  font-size: 0.8rem;
+  opacity: 0.5;
+  line-height: 1rem;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 800;
+}
+
+.show #show-rating {
+  color: #fff;
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.show #show-rating:before {
+  content: '';
+  display: block;
+  z-index: 1;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 4rem 4rem 0;
+  border-color: transparent #ED2024 transparent transparent;
+}
+
+.show #show-rating span {
+  position: absolute;
+  z-index: 2;
+  font-size: 1.2rem;
+  font-weight: 800;
+  transform: rotate(45deg);
+  line-height: 2.5rem;
+  width: 4rem;
+  text-align: center;
+  height: 4rem;
+}
+
+.show #show-certification {
+  color: #fff;
+  line-height: 22px;
+  width: 56px;
+  height: 24px;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  font-size: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  border-radius: 4px;
+}
+
+.show .show-opentrailer, .show .show-checkin, .show .show-addhistory, .show .show-addcollection, .show .show-addlist, .show .show-getamazon {
+  width: calc(100% - 6rem);
+  display: block;
+  color: #fff;
+  background: none;
+  height: 3rem;
+  line-height: 3rem;
+  position: absolute;
+  left: 4rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  border-radius: 0.25rem;
+}
+
+.show .show-opentrailer[disabled], .show .show-checkin[disabled], .show .show-addhistory[disabled], .show .show-addcollection[disabled], .show .show-addlist[disabled] {
+  opacity: 0.5 !important;
+  background: none !important;
+  cursor: default;
+}
+
+.show .show-opentrailer:hover, .show .show-checkin:hover, .show .show-addhistory:hover, .show .show-addcollection:hover, .show .show-addlist:hover, .show .show-getamazon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.show .show-opentrailer:focus, .show .show-checkin:focus, .show .show-addhistory:focus, .show .show-addcollection:focus, .show .show-addlist:focus, .show .show-getamazon:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.show .show-opentrailer i, .show .show-checkin i, .show .show-addhistory i, .show .show-addcollection i, .show .show-addlist i, .show .show-getamazon i {
+  width: 3rem;
+  height: 3rem;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 24px;
+  padding: 8px;
+}
+
+.show .show-getamazon {
+  bottom: 19.5rem;
+}
+
+.show .show-getamazon * {
+  pointer-events: none;
+}
+
+.show .show-opentrailer {
+  bottom: 16rem;
+  display: none;
+}
+
+.show .show-checkin {
+  color: #ED2024;
+  bottom: 10.5rem;
+}
+
+.show .show-addhistory {
+  bottom: 7rem;
+  overflow: hidden;
+}
+
+.show .show-addhistory .glow {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  top: 0;
+  left: -84px;
+  height: 100%;
+  width: 4rem;
+  transform: skewX(45deg);
+  transition: all 1s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.show .show-addhistory:after {
+  content: 'Mark as watched';
+}
+
+.show .show-addhistory.inwatchlist:after {
+  content: 'All episodes watched';
+}
+
+.show .show-addhistory.inwatchlist .glow {
+  left: 480px;
+}
+
+.show .show-addcollection {
+  bottom: 3.5rem;
+}
+
+.show .show-addlist {
+  bottom: 0;
+}
+
+.show #show-related {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: calc(100% - 3rem);
+}
+
+.show #show-related .show-related-item {
+  display: block;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  height: calc(((100vh - 18rem) /2));
+  width: calc(((((100vh - 18rem) /2)) /1.5) - 2rem);
+  cursor: pointer;
+  background: none;
+}
+
+.show #show-related .show-related-item:nth-child(2n) {
+  margin-bottom: 0px;
+}
+
+.show #show-related .show-related-item:nth-last-child(1), .show #show-related .show-related-item:nth-last-child(2) {
+  margin-right: 0;
+}
+
+.show #show-related .show-related-item img {
+  height: calc(100% - 3rem);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  outline: 0.5rem solid rgba(255, 255, 255, 0);
+}
+
+.show #show-related .show-related-item.isvisible img {
+  opacity: 1;
+}
+
+.show #show-related .show-related-item:focus img {
+  outline: 0.5rem solid white;
+  transform: scale(1.05) translateY(0%);
+  z-index: 999;
+}
+
+.show #show-related .show-related-item:hover img {
+  transition-duration: 0.2s;
+  box-shadow: 0 0 2rem rgba(255, 255, 255, 0.5);
+}
+
+.show #show-related .show-related-item span {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 2rem;
+  color: #fff;
+  height: 2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.show #show-stats {
+  font-size: 1.1rem;
+}
+
+.show .col7 h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 2rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
+
+.show #show-stats div {
+  line-height: 2rem;
+}
+
+.show #show-stats div span {
+  float: right;
+  opacity: 0.5;
+}
+
+.show .show-rating-distribution {
+  position: relative;
+  height: 8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.show .show-rating-distribution li {
+  width: 9%;
+  display: block;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}

@@ -1,0 +1,250 @@
+﻿.person #persondetails {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-size: cover;
+    background-position: center center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-top: 2rem;
+    padding-left: 6rem;
+    padding-right: 4rem;
+    line-height: 0px;
+    font-size: 0rem;
+    -ms-scroll-translation: vertical-to-horizontal;
+    white-space: nowrap;
+    opacity: 0;
+    animation-name: intro2;
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    animation-play-state: running;
+}
+
+    .person #persondetails .column {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        height: calc(100% - 3rem);
+        white-space: normal;
+    }
+
+        .person #persondetails .column h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            font-family: 'proximaweb';
+            letter-spacing: -1px;
+            line-height: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .person #persondetails .column.col1 {
+            width: calc(((((100vh - 12rem)) * 1000) /1500));
+            overflow: hidden;
+            box-shadow: 0px 12px 24px #000;
+            background-color: #000;
+        }
+
+        .person #persondetails .column.col2 {
+            width: 40rem;
+            padding-left: 4rem;
+            padding-right: 2rem;
+            overflow-y:auto;
+        }
+
+        .person #persondetails .column.col3 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .person #persondetails .column.col4 {
+            padding-left: 2rem;
+            padding-right: 4rem;
+        }
+
+
+
+
+
+
+        .person #persondetails .column.col1 #person-poster {
+            height: 100%;
+            width: calc(((((100vh - 12rem)) * 1000) /1500));
+            opacity: 0;
+            transition: all 2s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+        }
+
+            .person #persondetails .column.col1 #person-poster.visible {
+                opacity: 1;
+            }
+
+
+
+
+.person #person-info {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 120%;
+    opacity: 0.5;
+}
+
+
+
+
+
+.person #person-description {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.86rem;
+}
+
+
+
+
+
+
+
+.person .person-addlist {
+    width: calc(100% - 6rem);
+    display: block;
+    color: #fff;
+    background: none;
+    height: 3rem;
+    line-height: 3rem;
+    position: absolute;
+    left: 4rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+    .person .person-addlist:hover {
+        background-color: rgba(255,255,255,0.05);
+    }
+
+    .person .person-addlist:focus {
+        background-color: rgba(255,255,255,0.10);
+    }
+
+    .person .person-addlist i {
+        width: 3rem;
+        height: 3rem;
+        float: left;
+        text-align: center;
+        font-size: 2rem;
+        font-style: normal;
+        line-height: 3.5rem;
+    }
+
+
+
+
+
+
+
+.person .person-addlist {
+    bottom: 0;
+}
+
+
+
+   
+
+.person #person-movies, .person #person-shows {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: calc(100% - 3rem);
+}
+
+    .person #person-movies .person-movies-item, .person #person-shows .person-shows-item {
+        display: block;
+        margin-bottom: 2rem;
+        margin-right: 2rem;
+        height: calc(((100vh - 19rem) /2));
+        width: calc(((((100vh - 19rem) /2)) /1.5) - 2rem);
+        cursor: pointer;
+        background: none;
+    }
+
+        .person #person-movies .person-movies-item:focus .person-movies-image, .person #person-shows .person-shows-item:focus .person-shows-image {
+            outline:0.5rem solid rgba(255,255,255,1);
+        transform:scale(1.05) translateY(0%);
+        z-index:999;
+        }
+
+        .person #person-movies .person-movies-item:nth-child(2n), .person #person-shows .person-shows-item:nth-child(2n) {
+            margin-bottom: 0px;
+        }
+
+        .person #person-movies .person-movies-item:nth-last-child(1), .person #person-movies .person-movies-item:nth-last-child(2), .person #person-shows .person-shows-item:nth-last-child(1), .person #person-shows .person-shows-item:nth-last-child(2) {
+            margin-right: 0;
+        }
+
+        .person #person-movies .person-movies-item .person-movies-image, .person #person-shows .person-shows-item .person-shows-image {
+            height: calc(100% - 3rem);
+            box-shadow: 0px 1rem 2rem #000;
+            opacity: 0;
+            transform: translateY(50%);
+            z-index:3;
+            position:relative;
+            overflow:hidden;
+            background-color:#000;
+            pointer-events:none;
+            transition: all 0.4s 0.4s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+        }
+.person #person-movies .person-movies-item .person-movies-image img, .person #person-shows .person-shows-item .person-shows-image img {
+            height: 100%;
+            transform: translateX(-50%);
+            left:50%;
+            position:absolute;
+            width:auto;
+            top:0;
+        }
+
+            .person #person-movies .person-movies-item .person-movies-image.isvisible, .person #person-shows .person-shows-item .person-shows-image.isvisible {
+                opacity: 1;
+                transform: translateY(0%);
+                z-index:1;
+            }
+
+.person #persons-movies .persons-movies-item:hover .person-movies-image, .person #persons-shows .persons-shows-item:hover .person-shows-image {
+    transition-duration: 0.2s;
+    box-shadow: 0 0 2rem rgba(255,255,255,0.5);
+}
+
+.person #person-movies .person-movies-item span, .person #person-shows .person-shows-item span {
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 0rem;
+    line-height: 2rem;
+    color: #fff;
+    height: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position:relative;
+    z-index:2;
+}
+.person #person-movies .person-movies-item strong, .person #person-shows .person-shows-item strong {
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1rem;
+    color: rgba(255,255,255,0.5);
+    height: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position:relative;
+    z-index:2;
+    font-weight:500;
+}
+
+
+
+@media screen and (min-height: 900px) {
+
+}
